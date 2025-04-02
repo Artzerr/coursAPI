@@ -15,6 +15,7 @@ public class ProjectService {
 
     private final RestClient restClient = RestClient.create();
     private final static String GITHUB_USER_REPO_ENDPOINT = "https://api.github.com/user/repos";
+    private final static String GITHUB_INVITE_USER_ENDPOINT = "https://api.github.com/repos/{owner}/{repo}/collaborators/{username}";
 
     private final UserService userService;
 
@@ -59,9 +60,21 @@ public class ProjectService {
 
 
     public void inviteUsersToProject(String projectName, List<String> usernames) {
-        // TODO: Remplacer l'exception ci dessous par votre code
-        throw new UnsupportedOperationException("Fonctionnalité incomplète");
+
+        var token = userService.getCurrentUserToken();
+        var owner = userService.getCurrentUsername();
+        
+        usernames.forEach(username -> {
+            restClient
+            .put()
+            .uri(GITHUB_INVITE_USER_ENDPOINT, owner, projectName, usernames)
+            .header("Authorization", "Bearer " + token)
+            .retrieve(); 
+            });
     }
+        
+
+    
 
 
     public void initiateProject(String projectName, List<String> usersEmail) {
