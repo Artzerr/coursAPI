@@ -44,8 +44,17 @@ public class ProjectService {
     }
 
     public Project createProject(String name, String description) {
-        // TODO: Remplacer l'exception ci dessous par votre code
-        throw new UnsupportedOperationException("Fonctionnalité incomplète");
+            var token = userService.getCurrentUserToken();
+
+            Project githubProjects = restClient
+                .post()
+                .uri(GITHUB_USER_REPO_ENDPOINT)
+                .header("Authorization", "Bearer " + token)
+                .body(new Project(name, description))
+                .retrieve()
+                .body(Project.class);
+
+            return githubProjects;
     }
 
 

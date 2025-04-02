@@ -9,7 +9,7 @@ pouvons être amené à faire régulièrement.
 
 Assurez-vous d'avoir les éléments ci-dessous :
 
-- Java >= 21  [Lien d'installation](https://jdk.java.net/21/)
+- Java >= 21  [Lien d&#39;installation](https://jdk.java.net/21/)
 
 ```shell
 # Vérification
@@ -28,7 +28,6 @@ git --version
 Tout le monde peut créer une application liée à l'API de Github. La seule condition est d'avoir un compte Github.
 
 - Connectez-vous à votre compte Github puis rejoignez les [***Developer Settings***](https://github.com/settings/apps)
-
 - Dans le menu à gauche, allez dans OAuth Apps puis cliquez sur ***New Oauth App*** :
 
 ![create-oauth-app.png](assets%2Fcreate-oauth-app.png)
@@ -37,9 +36,7 @@ Tout le monde peut créer une application liée à l'API de Github. La seule con
   puis remplir le reste des informations comme vous le souhaitez :
 
   ![img.png](assets/create-github-oauth-app.png)
-
 - Vous pouvez valider votre création.
-
 - Une fois cela fait, récupérez votre client ID sur lequelle vous arrivez et garder le bien au chaud.
 - Générez également un client secrets puis garder le pour une étape ultérieur
   ![generate-client-secrets.png](assets%2Fgenerate-client-secrets.png)
@@ -68,13 +65,13 @@ avec notre API.
 - Cliquez sur la collection nouvellement créée puis créer une requête
 - Allez ensuite dans la section ***Authorization*** de la requête :
   ![config-auth-postman.png](assets%2Fconfig-auth-postman.png)
--
+- 
 - Sélectionner le Type Oauth 2.0 puis dans ***Configure New Token***, remplissez les champs comme suit :
-    - Cocher la case ***Authorize using browser***
-    - Remplissez le champ Auth URL avec la valeur : `https://github.com/login/oauth/authorize`
-    - Remplissez le champ Token URL avec la valeur : `https://github.com/login/oauth/access_token`
-    - Remplissez le champ Client ID avec la valeur que vous aviez récupéré dans ***l'étape 1***
-    - Remplissez le champ Client Secrets avec la valeur que vous aviez récupéré dans ***l'étape 1***
+  - Cocher la case ***Authorize using browser***
+  - Remplissez le champ Auth URL avec la valeur : `https://github.com/login/oauth/authorize`
+  - Remplissez le champ Token URL avec la valeur : `https://github.com/login/oauth/access_token`
+  - Remplissez le champ Client ID avec la valeur que vous aviez récupéré dans ***l'étape 1***
+  - Remplissez le champ Client Secrets avec la valeur que vous aviez récupéré dans ***l'étape 1***
 
 Vous devriez avoir cela à la fin :
 ![postman-oauth.png](assets%2Fpostman-oauth.png)
@@ -90,12 +87,12 @@ C'est parfait notre environnement de travail est prêt, on peut commencer à cod
 
 En utilisant la documentation
 disponible [ici](https://docs.github.com/en/rest/repos/repos?apiVersion=2022-11-28#list-repositories-for-a-user),
-complétez la fonction `getCurrentUserProjects` de `ProjectService` afin de récupérer la liste des répository de
+complétez la fonction `getProjects` de `ProjectService` afin de récupérer la liste des répository de
 l'utilisateur connecté.
 
 Pour valider:
 
-- Faire un GET avec l'url `http://localhost:8081/projects`
+- Faire un GET avec l'url `http://localhost:8081/projets`
 - Vous devriez avoir la liste de vos projets github
 
 ## 5 - Créer un projet à partir d’un nom
@@ -107,7 +104,7 @@ description.
 
 Pour valider :
 
-- Faire un POST avec l'url `http://localhost:8081/projects/exemple-cours-api`
+- Faire un POST avec l'url `http://localhost:8081/projets/exemple-cours-api`
 - Un répository privé devrait être créé avec le nom `exemple-cours-api`
 
 ## 6 - Permettre l’invitation d’une liste de personne sur un projet spécifique
